@@ -1,17 +1,22 @@
 package teammpro;
 
+import java.util.Scanner;
+
 public class Ex01 {
 
 	public static void main(String[] args) {
-		System.out.println("팀 첫번째 커밋!");
-		
-		System.out.println("팀 두번째 커밋!");
-		
-		System.out.println("팀 3번째 커밋!");
-		
-		System.out.println("팀 4번째 커밋!");
 	
-		System.out.println("팀 5번째 커밋!");
+		Scanner sc = new Scanner(System.in);
+		int result = 0;
+		System.out.print("A 입력 : ");
+		int A = sc.nextInt();
+		System.out.print("B 입력 : ");
+		int B = sc.nextInt();
+		while(A<B) {
+			result = B-A;
+			System.out.println(result);
+			break;
+		}
 	}
 
 }
