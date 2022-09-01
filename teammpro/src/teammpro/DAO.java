@@ -107,7 +107,7 @@ import java.util.Scanner;
 		}
 		public MemberVO minus_point(MemberVO mv,int point) {
 			getCon();
-			String sql = "update join_users set point =? where id = ?";
+			String sql = "update join_users set point =? where user_id = ?";
 			try {
 				psmt = conn.prepareStatement(sql);
 				psmt.setInt(1, point);

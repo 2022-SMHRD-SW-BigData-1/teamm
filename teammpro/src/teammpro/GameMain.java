@@ -76,7 +76,12 @@ public class GameMain {
 			
 			
 		} else if (menu == 3) {
-			mv = start.gameStart(mv);
+			if(mv!=null) {
+				mv = start.gameStart(mv);
+				
+			}else {
+				System.out.println("로그인후 사용해주세요");
+			}
 			
 		} else if (menu == 4) {
 			
