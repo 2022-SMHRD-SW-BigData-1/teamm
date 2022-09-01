@@ -69,6 +69,7 @@ public class GameStart {
 					point = point - (point*2);
 				}
 				mv = dao.minus_point(mv, point);
+				
 			} else {
 				break;
 			}
