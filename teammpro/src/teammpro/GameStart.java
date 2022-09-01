@@ -30,10 +30,10 @@ public class GameStart {
 						+ "                               \\/                 \\/       \\/         ");
 			System.out.println("🐎 말을 선택해주세요 🐎");
 			System.out.print("[1] 1번 말 : 훌라밍고\n"
-					+ "[2] 2번 말 : 심장의 고동\n"
+					+ "[2] 2번 말 : 심장의고동\n"
 					+ "[3] 3번 말 : 청담도끼\n"
 					+ "[4] 4번 말 : 경부대로\n"
-					+ "[5] 5번 말 : 지금이순간\n원하는 번호의 말 : ");
+					+ "[5] 5번 말 : 지금이순간\n원하는 말의 번호 : ");
 			int choice = sc.nextInt();
 			System.out.println(choice + "번 말 선택완료!");
 			String horse_name = null;
