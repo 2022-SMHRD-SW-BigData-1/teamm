@@ -84,7 +84,8 @@ public class GameMain {
 			}
 			
 		} else if (menu == 4) {
-			
+			System.out.println("=======랭킹 확인 ======");
+			dao.select();
 		} else if (menu == 5) {
 			loan.loan(mv);
 			
