@@ -99,7 +99,7 @@ import java.util.Scanner;
 					}
 				} 
 			} catch (SQLException e) {
-				e.printStackTrace();
+				System.out.println("데이터베이스 오류");
 			} finally {
 				close();
 			}
