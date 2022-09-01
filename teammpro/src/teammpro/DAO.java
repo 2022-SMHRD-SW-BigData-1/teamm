@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-//import Model.MemberVO;
 
 	public class DAO {
 		Scanner sc = new Scanner(System.in);
@@ -57,7 +56,7 @@ import java.util.Scanner;
 			int cnt = 0;
 			try {
 				getCon();
-				String sql = "insert into memberInfo values(?, ?, ?)";
+				String sql = "insert into join_users values(?, ?, ?, 100)";
 
 				psmt = conn.prepareStatement(sql);
 
@@ -79,7 +78,7 @@ import java.util.Scanner;
 		public int login(String id, String pw) {
 			try {
 				getCon();
-				String sql = "select * from memberInfo where id = ? and pw = ?";
+				String sql = "select * from join_users where id = ? and pw = ?";
 
 				psmt = conn.prepareStatement(sql);
 

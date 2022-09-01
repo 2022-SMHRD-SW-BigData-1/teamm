@@ -55,7 +55,6 @@ public class GameMain {
 			System.out.print("닉네임 입력 : ");
 			String nick = sc.next();
 			
-			
 			int cnt = dao.join(id, pw, nick);
 			
 			if (cnt > 0) {
