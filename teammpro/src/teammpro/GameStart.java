@@ -6,6 +6,8 @@ public class GameStart {
 
 	public void gameStart() {
 		Scanner sc = new Scanner(System.in);
+		HorseGame game = new HorseGame();
+		RANK ranking = null;
 
 		while(true) {
 			System.out.print("\n게임을 시작하시겠습니까?\n[1]네 [2]아니요 >> ");
@@ -38,7 +40,8 @@ public class GameStart {
 			int point = sc.nextInt();
 			System.out.println(point + "p 배팅하였습니다!\n행운을 빕니다...☘");
 		
-			// 게임 진행 메소드 삽입
+			ranking = game.gamePlay();
+			
 		
 			} else {
 				break;

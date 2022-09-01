@@ -27,5 +27,9 @@ public class Horse {
 	public boolean getCheck() {
 		return check;
 	}
+	public String getName() {
+		return name;
+	}
+	
 	
 }

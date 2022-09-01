@@ -7,6 +7,7 @@ public class GameMain {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		GameStart start = new GameStart();
+		Loan loan = new Loan();
 		
 		System.out.println("                                                        |\\    /|\r\n"
 				+ "                                                     ___| \\,,/_/\r\n"
@@ -53,6 +54,7 @@ public class GameMain {
 		} else if (menu == 4) {
 			
 		} else if (menu == 5) {
+			loan.loan();
 			
 		} else if (menu == 6) {
 			System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
