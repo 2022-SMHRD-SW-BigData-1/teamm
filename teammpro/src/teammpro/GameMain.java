@@ -42,8 +42,13 @@ public class GameMain {
 		DAO dao = new DAO();
 		
 		while (true) {
-			
-		System.out.print("\n원하시는 버튼을 입력해주세요\n[1] 회원가입 [2] 로그인 [3] 게임 시작 [4] 랭킹 확인하기 [5] 대출하기 [6] 종료 >> ");
+		if(mv==null) {
+			System.out.println("\n원하시는 버튼을 입력해주세요");
+		}else {
+			System.out.println("\n원하시는 버튼을 입력해주세요\t["+mv.getNickname()+"님, 포인트 : "+mv.getPoint()+"]");
+		}
+		
+		System.out.print("[1] 회원가입 [2] 로그인 [3] 게임 시작 [4] 랭킹 확인하기 [5] 대출하기 [6] 종료 >> ");
 		int menu = sc.nextInt();
 		
 		if (menu == 1) {
@@ -65,13 +70,17 @@ public class GameMain {
 			}
 			
 		} else if (menu == 2) {
-			System.out.print("로그인 ID : ");
-			String id = sc.next();
-			
-			System.out.print("PW : ");
-			String pw = sc.next();
-			
-			mv = dao.login(id, pw);
+			if(mv==null) {				
+				System.out.print("로그인 ID : ");
+				String id = sc.next();
+				
+				System.out.print("PW : ");
+				String pw = sc.next();
+				
+				mv = dao.login(id, pw);
+			}else {
+				System.out.println("이미 로그인 되어있습니다.");
+			}
 			
 			
 			
@@ -85,6 +94,7 @@ public class GameMain {
 			
 		} else if (menu == 4) {
 			System.out.println("=======랭킹 확인 ======");
+			dao.select();
 			
 		} else if (menu == 5) {
 			loan.loan(mv);

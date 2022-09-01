@@ -59,17 +59,17 @@ public class GameStart {
 		
 			ranking = game.gamePlay();
 				if(ranking.getHorse()[0].equals(horse_name)) {
-					point = point*2;
+					point = point;
 				}else if(ranking.getHorse()[1].equals(horse_name)){
-					point = (int) (point*1.5);
+					point = (int) (point/2);
 				}else if(ranking.getHorse()[2].equals(horse_name)) {
 					
 				}
 				else {
-					point = point - (point*2);
+					point = -point;
 				}
 				mv = dao.minus_point(mv, point);
-				
+				System.out.println(mv.getNickname()+"님의 현재 포인트 : " + mv.getPoint());
 			} else {
 				break;
 			}

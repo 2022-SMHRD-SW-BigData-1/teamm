@@ -110,6 +110,7 @@ public class DAO {
 		String sql = "update join_users set point =? where user_id = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
+			point = mv.getPoint() + point;
 			psmt.setInt(1, point);
 			psmt.setNString(2, mv.getUser_id());
 			psmt.executeUpdate();
