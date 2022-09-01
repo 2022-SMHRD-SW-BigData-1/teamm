@@ -122,7 +122,6 @@ import java.util.Scanner;
 		}//랭킹확인
 		
 		public void select() {
-
 			try {
 				getCon();
 				String sql = "select * from join_users order by point desc";
