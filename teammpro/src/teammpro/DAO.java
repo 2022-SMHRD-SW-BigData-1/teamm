@@ -119,6 +119,30 @@ import java.util.Scanner;
 			}
 			mv.setPoint(point);
 			return mv;
+		}//랭킹확인
+		
+		public void select() {
+
+			try {
+				getCon();
+				String sql = "select * from join_users order by point desc";
+				psmt = conn.prepareStatement(sql);
+
+				rs = psmt.executeQuery();
+
+				while (rs.next()) {
+
+					String nick = rs.getString("nickname");
+					int point = rs.getInt("point");
+					System.out.println(nick + "\t" + point);
+
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
 		}
 		
 }
