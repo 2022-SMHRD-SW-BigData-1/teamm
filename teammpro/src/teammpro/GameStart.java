@@ -10,7 +10,7 @@ public class GameStart {
 		RANK ranking = null;
 		DAO dao = new DAO();
 
-		while(true) {
+		while (true) {
 			System.out.print("\n게임을 시작하시겠습니까?\n[1]네 [2]아니요 >> ");
 			int start = sc.nextInt();
 		
@@ -69,7 +69,7 @@ public class GameStart {
 					point = -point;
 				}
 				mv = dao.minus_point(mv, point);
-				System.out.println(mv.getNickname()+"님의 현재 포인트 : " + mv.getPoint());
+				System.out.println(mv.getNickname() + "님의 현재 포인트 : " + mv.getPoint());
 			} else {
 				break;
 			}

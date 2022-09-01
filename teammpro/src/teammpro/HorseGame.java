@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class HorseGame {
 		public RANK gamePlay() {
+			
 		RANK rk = new RANK();
 		Horse ho1 = new Horse(" 1.훌라밍고🐎");
 		Horse ho2 = new Horse(" 2.심장의고동🐎");
@@ -13,6 +14,7 @@ public class HorseGame {
 		int count =0;
 		int rank =0;
 		boolean check= false;
+		
 		while(true) {
 			System.out.println("====================================");
 			System.out.println("====================================");
@@ -64,8 +66,7 @@ public class HorseGame {
 				check=true;
 			}
 		}
-		for(int i =0;i<5;i++) {
-			
+		for (int i =0;i<5;i++) {
 			System.out.println((i+1)+"등"+rk.getHorse()[i]);
 		}
 		return rk;

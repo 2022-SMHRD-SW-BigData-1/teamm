@@ -14,6 +14,7 @@ public class RANK {
 		horse[rank] = name;
 		this.rank++;
 	}
+	
 	public String[] getHorse() {
 		return horse;
 	}
