@@ -25,11 +25,6 @@ public class DAO {
 
 			conn = DriverManager.getConnection(url, db_id, db_pw);
 
-			if (conn != null) {
-				System.out.println("접속 성공");
-			} else {
-				System.out.println("접속 실패");
-			}
 		} catch (Exception e) { // ClassNotFoundException + SQLException
 			System.out.println("오류발생");
 		}
@@ -115,7 +110,6 @@ public class DAO {
 			psmt.setNString(2, mv.getUser_id());
 			psmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("SQL 오류");
 		}
 		mv.setPoint(point);
