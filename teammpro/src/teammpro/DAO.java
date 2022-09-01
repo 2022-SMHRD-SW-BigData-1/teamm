@@ -79,7 +79,7 @@ import java.util.Scanner;
 		public MemberVO login(String id, String pw) {
 			try {
 				getCon();
-				String sql = "select * from join_users where id = ? and pw = ?";
+				String sql = "select * from join_users where user_id = ? and user_password = ?";
 
 				psmt = conn.prepareStatement(sql);
 
