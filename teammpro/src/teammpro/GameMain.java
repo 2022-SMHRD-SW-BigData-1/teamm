@@ -81,7 +81,7 @@ public class GameMain {
 		} else if (menu == 4) {
 			
 		} else if (menu == 5) {
-			loan.loan();
+			loan.loan(mv);
 			
 		} else if (menu == 6) {
 			System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
