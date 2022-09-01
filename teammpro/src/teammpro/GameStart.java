@@ -59,11 +59,11 @@ public class GameStart {
 		
 			ranking = game.gamePlay();
 				if(ranking.getHorse()[0].equals(horse_name)) {
-					point = point;
+					
 				}else if(ranking.getHorse()[1].equals(horse_name)){
 					point = (int) (point/2);
 				}else if(ranking.getHorse()[2].equals(horse_name)) {
-					
+					point = 0;
 				}
 				else {
 					point = -point;
