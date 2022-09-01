@@ -36,6 +36,7 @@ public class GameStart {
 					+ "[5] 5번 말 : 지금이순간\n원하는 말의 번호 : ");
 			int choice = sc.nextInt();
 			System.out.println(choice + "번 말 선택완료!");
+			
 			String horse_name = null;
 			if(choice==1) {
 				horse_name =" 1.훌라밍고🐎";

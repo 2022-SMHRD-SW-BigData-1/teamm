@@ -6,7 +6,9 @@ public class Horse {
 	private String name;
 	private int range =1;
 	private boolean check = true;
+	
 	Random rd = new Random();
+	
 	public Horse(String name) {
 		this.name = name;
 	}

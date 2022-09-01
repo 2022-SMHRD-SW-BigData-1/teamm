@@ -15,8 +15,10 @@ public class Loan {
 				+ "                         .||     ||. `|....|' .||   \\||. .||....|   .||.   \r\n"
 				+ "                                                                           ");
 		System.out.println("안녕하세요 ๑╹ワ╹๑ ~ 무슨 일로 오셨나요?");
+		
 		while (true) {
 		System.out.print("[1] 포인트 빌리기 [2] 빌린 포인트 반납 [3] 나가기 >> ");
+		
 		int menu = sc.nextInt();
 		int point = mv.getPoint();
 		

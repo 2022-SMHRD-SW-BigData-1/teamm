@@ -5,6 +5,7 @@ public class MemberVO {
 	private String user_pw;
 	private String nickname;
 	private int point;
+	
 	public MemberVO(String user_id, String user_pw, String nickname, int point) {
 		super();
 		this.user_id = user_id;
@@ -27,5 +28,4 @@ public class MemberVO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
-	
 }
