@@ -8,6 +8,7 @@ public class GameMain {
 		Scanner sc = new Scanner(System.in);
 		GameStart start = new GameStart();
 		Loan loan = new Loan();
+		MemberVO mv =null;
 		
 		System.out.println("                                                        |\\    /|\r\n"
 				+ "                                                     ___| \\,,/_/\r\n"
@@ -70,16 +71,12 @@ public class GameMain {
 			System.out.print("PW : ");
 			String pw = sc.next();
 			
-			int cnt = dao.login(id, pw);
+			mv = dao.login(id, pw);
 			
-			if (cnt > 0) {
-				System.out.println("로그인 성공");
-			} else {
-				System.out.println("로그인 실패");
-			} 
+			
 			
 		} else if (menu == 3) {
-			start.gameStart();
+			mv = start.gameStart(mv);
 			
 		} else if (menu == 4) {
 			

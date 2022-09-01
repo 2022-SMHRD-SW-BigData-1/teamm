@@ -14,6 +14,7 @@ import java.util.Scanner;
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
+		MemberVO mv=null;
 		
 		public void getCon() {
 			try {
@@ -75,7 +76,7 @@ import java.util.Scanner;
 		}
 
 		// [2]로그인
-		public int login(String id, String pw) {
+		public MemberVO login(String id, String pw) {
 			try {
 				getCon();
 				String sql = "select * from join_users where id = ? and pw = ?";
@@ -89,9 +90,12 @@ import java.util.Scanner;
 				
 				if (rs.next()) {
 					if (rs.getString(1).contentEquals(id) && rs.getString(2).contentEquals(pw)) {
-						return 1; // 로그인 성공
+						mv= new MemberVO(id, pw, rs.getString("nickname"), rs.getInt("point"));
+						System.out.println("로그인 성공");
+						return mv; // 로그인 성공
 					} else {
-						return 0; // 비밀번호 불일치
+						System.out.println("로그인 실패");
+						return mv; // 비밀번호 불일치
 					}
 				} 
 			} catch (SQLException e) {
@@ -99,7 +103,22 @@ import java.util.Scanner;
 			} finally {
 				close();
 			}
-			return -1;
+			return mv;
+		}
+		public MemberVO minus_point(MemberVO mv,int point) {
+			getCon();
+			String sql = "update join_users set point =? where id = ?";
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, point);
+				psmt.setNString(2, mv.getUser_id());
+				psmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("SQL 오류");
+			}
+			mv.setPoint(point);
+			return mv;
 		}
 		
 }

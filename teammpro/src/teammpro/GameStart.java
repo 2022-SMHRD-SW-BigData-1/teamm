@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class GameStart {
 
-	public void gameStart() {
+	public MemberVO gameStart(MemberVO mv) {
 		Scanner sc = new Scanner(System.in);
 		HorseGame game = new HorseGame();
 		RANK ranking = null;
+		DAO dao = new DAO();
 
 		while(true) {
 			System.out.print("\n게임을 시작하시겠습니까?\n[1]네 [2]아니요 >> ");
@@ -35,16 +36,43 @@ public class GameStart {
 					+ "[5] 5번 말 : 지금이순간\n원하는 번호의 말 : ");
 			int choice = sc.nextInt();
 			System.out.println(choice + "번 말 선택완료!");
+			String horse_name = null;
+			if(choice==1) {
+				horse_name =" 1.훌라밍고🐎";
+			}
+			else if(choice ==2) {
+				horse_name =" 2.심장의고동🐎";
+			}
+			else if(choice ==2) {
+				horse_name =" 3.청담도끼🐎";
+			}
+			else if(choice ==2) {
+				horse_name =" 4.경부대로🐎";
+			}
+			else if(choice ==2) {
+				horse_name =" 5.지금이순간🐎";
+			}
 		
 			System.out.print("\n💸 배팅하실 포인트를 입력해주세요 💸\n배팅 금액 : ");
 			int point = sc.nextInt();
 			System.out.println(point + "p 배팅하였습니다!\n행운을 빕니다...☘");
 		
 			ranking = game.gamePlay();
-		
+				if(ranking.getHorse()[0].equals(horse_name)) {
+					point = point*2;
+				}else if(ranking.getHorse()[1].equals(horse_name)){
+					point = (int) (point*1.5);
+				}else if(ranking.getHorse()[2].equals(horse_name)) {
+					
+				}
+				else {
+					point = point - (point*2);
+				}
+				mv = dao.minus_point(mv, point);
 			} else {
 				break;
 			}
 		}
+		return mv;
 	}
 }
