@@ -38,6 +38,7 @@ public class GameMain {
 				+ "                               \\/       \\/          \\/            \\/     \\/ ");
 		
 		System.out.println("\n반갑습니다! ⊂((・▽・))⊃ 스마트 H 경마장에 오신 것을 환영합니다!!");
+		DAO dao = new DAO();
 		
 		while (true) {
 			
@@ -45,8 +46,38 @@ public class GameMain {
 		int menu = sc.nextInt();
 		
 		if (menu == 1) {
+			System.out.print("가입할 ID 입력 : ");
+			String id = sc.next();
+			
+			System.out.print("PW 입력 : ");
+			String pw = sc.next();
+			
+			System.out.print("닉네임 입력 : ");
+			String nick = sc.next();
+			
+			
+			int cnt = dao.join(id, pw, nick);
+			
+			if (cnt > 0) {
+				System.out.println("등록 성공");
+			} else {
+				System.out.println("등록 실패");
+			}
 			
 		} else if (menu == 2) {
+			System.out.print("로그인 ID : ");
+			String id = sc.next();
+			
+			System.out.print("PW : ");
+			String pw = sc.next();
+			
+			int cnt = dao.login(id, pw);
+			
+			if (cnt > 0) {
+				System.out.println("로그인 성공");
+			} else {
+				System.out.println("로그인 실패");
+			} 
 			
 		} else if (menu == 3) {
 			start.gameStart();
