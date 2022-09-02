@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DAO {
@@ -117,25 +118,32 @@ public class DAO {
 		return mv;
 	}
 
-	public void select() {
+
+
+	public ArrayList<MemberVO> select(){
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		
 		try {
 			getCon();
-			String sql = "select * from join_users order by point desc";
+			String sql = "select * from (select*from  join_users  order by point desc) where rownum<=5";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-
-				String nick = rs.getString("nickname");
-				int point = rs.getInt("point");
-				System.out.println(nick + "\t" + point);
-
+			
+			while(rs.next()) {
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				String nick = rs.getString(3);
+				int point = rs.getInt(4);
+				MemberVO vo = new MemberVO(id, pw, nick, point);
+				list.add(vo);
 			}
-		} catch (SQLException e) {
-			System.out.println("랭킹확인 오류");
-		} finally {
-			close();
-		}
+	}catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close();
 	}
+	return list;
+
+}
 }

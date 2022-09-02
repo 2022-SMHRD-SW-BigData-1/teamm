@@ -1,5 +1,6 @@
 package teammpro;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameMain {
@@ -89,7 +90,15 @@ public class GameMain {
 						+ "                            ||       ||''||   ||'''|  ||       ||<<    \r\n"
 						+ "                            ||       ||  ||   ||      ||       || \\\\   \r\n"
 						+ "                            `|....' .||  ||. .||....| `|....' .||  \\\\. \n");
-				dao.select();
+				ArrayList<MemberVO> list = dao.select();
+				for (int i = 0; i < list.size(); i++) {
+					
+				
+					System.out.println(i+1+"등."+"\t"+list.get(i).getNickname() + "\t"+list.get(i).getPoint() + "\t");
+					
+
+				}
+
 				
 			} else if (menu == 4) {
 					System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
