@@ -8,7 +8,7 @@ public class GameMain {
 		Scanner sc = new Scanner(System.in);
 		GameStart start = new GameStart();
 		Loan loan = new Loan();
-		MemberVO mv =null;
+		MemberVO mv = null;
 		
 		System.out.println("                                                        |\\    /|\r\n"
 				+ "                                                     ___| \\,,/_/\r\n"
@@ -42,57 +42,74 @@ public class GameMain {
 		DAO dao = new DAO();
 		
 		while (true) {
-		if(mv==null) {
+		if (mv == null) {
 			System.out.println("\n원하시는 버튼을 입력해주세요");
-		}else {
+			System.out.print("[1] 회원가입 [2] 로그인 [3] 랭킹 확인하기 [4] 종료 >> ");
+			int menu = sc.nextInt();
+			
+			if (menu == 1) {
+				System.out.print("가입할 ID 입력 : ");
+				String id = sc.next();
+				
+				System.out.print("PW 입력 : ");
+				String pw = sc.next();
+				
+				System.out.print("닉네임 입력 : ");
+				String nick = sc.next();
+				
+				int cnt = dao.join(id, pw, nick);
+				
+				if (cnt > 0) {
+					System.out.println("등록 성공");
+				} else {
+					System.out.println("등록 실패");
+				}
+				
+			} else if (menu == 2) {
+				if(mv == null) {				
+					System.out.print("로그인 ID : ");
+					String id = sc.next();
+					
+					System.out.print("PW : ");
+					String pw = sc.next();
+					
+					mv = dao.login(id, pw);
+				} 
+			} else if (menu == 3) {
+				System.out.println("\n\r\n"
+						+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
+						+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
+						+ "               ||...|'    //...\\\\     || \\\\ ||   ||<<       ||     || \\\\ ||  || |''|| \r\n"
+						+ "               || \\\\     //     \\\\    ||  \\\\||   || \\\\      ||     ||  \\\\||  ||    || \r\n"
+						+ "              .||  \\\\. .//       \\\\. .||   \\||. .||  \\\\. |..||..| .||   \\||. `|....|' \r\n"
+						+ "                                                                                      \r\n"
+						+ "                                                                                      \r\n"
+						+ "                            .|'''', '||  ||` '||''''| .|'''', '||  //' \r\n"
+						+ "                            ||       ||  ||   ||   .  ||       || //   \r\n"
+						+ "                            ||       ||''||   ||'''|  ||       ||<<    \r\n"
+						+ "                            ||       ||  ||   ||      ||       || \\\\   \r\n"
+						+ "                            `|....' .||  ||. .||....| `|....' .||  \\\\. \n");
+				dao.select();
+				
+			} else if (menu == 4) {
+					System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
+					break;
+			}	
+			
+		} else {
 			System.out.println("\n원하시는 버튼을 입력해주세요\t["+mv.getNickname()+"님, 포인트 : "+mv.getPoint()+"]");
-		}
-		
-		System.out.print("[1] 회원가입 [2] 로그인 [3] 게임 시작 [4] 랭킹 확인하기 [5] 대출하기 [6] 종료 >> ");
+		} System.out.print("[1] 게임 시작 [2] 랭킹 확인하기 [3] 대출하기 [4] 로그아웃 [5] 종료 >> ");
 		int menu = sc.nextInt();
 		
 		if (menu == 1) {
-			System.out.print("가입할 ID 입력 : ");
-			String id = sc.next();
-			
-			System.out.print("PW 입력 : ");
-			String pw = sc.next();
-			
-			System.out.print("닉네임 입력 : ");
-			String nick = sc.next();
-			
-			int cnt = dao.join(id, pw, nick);
-			
-			if (cnt > 0) {
-				System.out.println("등록 성공");
+			if (mv != null) {
+				mv = start.gameStart(mv);
+				
 			} else {
-				System.out.println("등록 실패");
+				System.out.println("로그인후 사용해주세요.\n");
 			}
 			
 		} else if (menu == 2) {
-			if(mv==null) {				
-				System.out.print("로그인 ID : ");
-				String id = sc.next();
-				
-				System.out.print("PW : ");
-				String pw = sc.next();
-				
-				mv = dao.login(id, pw);
-			}else {
-				System.out.println("이미 로그인 되어있습니다.");
-			}
-			
-			
-			
-		} else if (menu == 3) {
-			if(mv!=null) {
-				mv = start.gameStart(mv);
-				
-			}else {
-				System.out.println("로그인후 사용해주세요");
-			}
-			
-		} else if (menu == 4) {
 			System.out.println("\n\r\n"
 					+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 					+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
@@ -108,14 +125,24 @@ public class GameMain {
 					+ "                            `|....' .||  ||. .||....| `|....' .||  \\\\. \n");
 			dao.select();
 			
-		} else if (menu == 5) {
+		} else if (menu == 3) {
 			loan.loan(mv);
 			
-		} else if (menu == 6) {
+		} else if (menu == 4) {
+			System.out.print("로그아웃 하시겠습니까?\n[1] 네 [2] 아니요 >> ");
+			int out = sc.nextInt();
+			
+			if (out == 1) {
+				mv = null;
+				System.out.println("로그아웃 되었습니다! 다음에 또 만나요 (˵ ͡~ ͜ʖ ͡°˵)ﾉ\n");
+			} else {
+				
+			}
+		} else if (menu == 5) {
 			System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
 			break;
-		}
-		}
+		} 
 	}
+}
 
 }
