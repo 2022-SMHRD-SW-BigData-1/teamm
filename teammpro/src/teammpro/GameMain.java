@@ -44,12 +44,12 @@ public class GameMain {
 				+ "                        \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >\r\n"
 				+ "                             \\/       \\/          \\/            \\/     \\/ ");
 		
+		
 		System.out.println("\n\n\t\t\t반갑습니다! ⊂((・▽・))⊃ 스마트 H 경마장에 오신 것을 환영합니다!!");
 		DAO dao = new DAO();
 		
 		while (true) {
 		if (mv == null) {
-			
 			System.out.println("\n\t\t\t\t     원하시는 버튼을 입력해주세요");
 			System.out.print("\t\t[1] 회원가입\t[2] 로그인\t[3] 랭킹 확인하기\t    [4] 종료 >> ");
 			int menu = sc.nextInt();

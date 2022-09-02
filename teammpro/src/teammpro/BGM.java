@@ -11,6 +11,8 @@ public class BGM {
 	public BGM() {
 		playList.add(new MusicVO("홈페이지 들어갓을때 효과음", "C://music/홈페이지 들어갓을때 효과음.mp3"));
 		playList.add(new MusicVO("함성박수1", "C://music/함성박수1.mp3"));
+		playList.add(new MusicVO("반갑습니다 에이치", "C://music/반갑습니다 에이치.mp3"));
+		playList.add(new MusicVO("스포츠_타이틀", "C://music/스포츠_타이틀.mp3"));
 		playList.add(new MusicVO("1등 말 소개하면서 나오는 효과음", "C://music/1등 말 소개하면서 나오는 효과음.mp3"));
 		playList.add(new MusicVO("각 말 등장하기전에 효과음", "C://music/각 말 등장하기전에 효과음.mp3"));
 		playList.add(new MusicVO("권총소리2", "C://music/권총소리2.mp3"));
@@ -41,12 +43,22 @@ public class BGM {
 			currentIndex = 0;
 		}
 		MusicVO m = playList.get(currentIndex);
-//		if (bgm.isPlaying()) {
-//			bgm.stop();
-//		} 
 		
 		bgm.play(m.getPath());
 		return m;
 	}
 
+	public MusicVO Sound() {
+		++currentIndex;
+		if (currentIndex == playList.size()) {
+			currentIndex = 0;
+		}
+		MusicVO m = playList.get(currentIndex = 3);
+		if (bgm.isPlaying()) {
+			bgm.stop();
+		} 
+		
+		bgm.play(m.getPath());
+		return m;
+	}
 }
