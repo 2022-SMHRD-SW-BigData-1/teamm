@@ -118,8 +118,6 @@ public class DAO {
 		return mv;
 	}
 
-
-
 	public ArrayList<MemberVO> select(){
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
 		
@@ -145,6 +143,5 @@ public class DAO {
 		close();
 	}
 	return list;
-
-}
+	}
 }

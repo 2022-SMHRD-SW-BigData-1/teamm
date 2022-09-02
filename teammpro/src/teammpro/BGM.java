@@ -19,6 +19,7 @@ public class BGM {
 		playList.add(new MusicVO("홈페이지 들어갓을때 효과음", "C://music/홈페이지 들어갓을때 효과음.mp3"));
 		playList.add(new MusicVO("환호하는관중", "C://music/환호하는관중.mp3"));
 		playList.add(new MusicVO("휘파람박수", "C://music/휘파람박수.mp3"));
+		playList.add(new MusicVO("말 소개", "C://music/말 소개.mp3"));
 	}
 	
 	public MusicVO play() {
