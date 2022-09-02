@@ -3,6 +3,8 @@ package teammpro;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javazoom.jl.player.MP3Player;
+
 public class GameMain {
 
 	public static void main(String[] args) {
@@ -10,9 +12,10 @@ public class GameMain {
 		GameStart start = new GameStart();
 		Loan loan = new Loan();
 		MemberVO mv = null;
-		BGM player = new BGM();
+		BGM play = new BGM();
 		
-		MusicVO a = player.play();
+		MusicVO m1 = play.p1();
+		MusicVO m2 = play.p2();
 		
 		System.out.println("\n"
 				+ "                                                           |\\    /|\r\n"
@@ -35,7 +38,6 @@ public class GameMain {
 				+ "                            | |    /__\\               |  \\\r\n"
 				+ "                            /__\\                       /___\\");
 		
-		MusicVO b = player.nextPlay();
 		System.out.println("\r\n\n\n"
 				+ "                       __      __       .__                             \r\n"
 				+ "                      /  \\    /  \\ ____ |  |   ____  ____   _____   ____  \r\n"
@@ -44,15 +46,17 @@ public class GameMain {
 				+ "                        \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >\r\n"
 				+ "                             \\/       \\/          \\/            \\/     \\/ ");
 		
-		
 		System.out.println("\n\n\t\t\t반갑습니다! ⊂((・▽・))⊃ 스마트 H 경마장에 오신 것을 환영합니다!!");
 		DAO dao = new DAO();
 		
 		while (true) {
 		if (mv == null) {
+			play.play("반갑습니다 에이치");
 			System.out.println("\n\t\t\t\t     원하시는 버튼을 입력해주세요");
 			System.out.print("\t\t[1] 회원가입\t[2] 로그인\t[3] 랭킹 확인하기\t    [4] 종료 >> ");
 			int menu = sc.nextInt();
+			
+			play.play("스포츠_타이틀");
 			
 			if (menu == 1) {
 				System.out.print("\t\t\t\t\t가입할 ID 입력 : ");
@@ -85,6 +89,7 @@ public class GameMain {
 					mv = dao.login(id, pw);
 				} 
 			} else if (menu == 3) {
+				play.play("1등등장");
 				System.out.println("\n\n\n\n\n\n\r\n"
 						+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 						+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
@@ -120,6 +125,7 @@ public class GameMain {
 			}
 			
 		} else if (menu == 2) {
+			play.play("1등등장");
 			System.out.println("\n\n\n\n\n\n\r\n"
 					+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 					+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
