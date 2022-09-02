@@ -114,7 +114,7 @@ public class LoanDAO {
 	// 포인트 돌려받을때 쓰는 메소드
 	public void getShare(MemberVO mv, int point, LoanVO lv) {
 		if (lv == null || lv.getPoint() == 0) {
-			System.out.println("갚을 포인트가 없습니다.");
+			System.out.println("\n\t\t\t\t갚을 포인트가 없습니다.\n\n");
 		} else {
 			getCon();
 			String sql = "update loan set point =? where user_id = ?";

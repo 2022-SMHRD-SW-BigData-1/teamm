@@ -12,7 +12,7 @@ public class GameMain {
 		MemberVO mv = null;
 		BGM player = new BGM();
 		
-		MusicVO m = player.play();
+		MusicVO a = player.play();
 		
 		System.out.println("\n"
 				+ "                                                           |\\    /|\r\n"
@@ -35,6 +35,7 @@ public class GameMain {
 				+ "                            | |    /__\\               |  \\\r\n"
 				+ "                            /__\\                       /___\\");
 		
+		MusicVO b = player.nextPlay();
 		System.out.println("\r\n\n\n"
 				+ "                       __      __       .__                             \r\n"
 				+ "                      /  \\    /  \\ ____ |  |   ____  ____   _____   ____  \r\n"
@@ -48,6 +49,7 @@ public class GameMain {
 		
 		while (true) {
 		if (mv == null) {
+			
 			System.out.println("\n\t\t\t\t     원하시는 버튼을 입력해주세요");
 			System.out.print("\t\t[1] 회원가입\t[2] 로그인\t[3] 랭킹 확인하기\t    [4] 종료 >> ");
 			int menu = sc.nextInt();
@@ -137,7 +139,7 @@ public class GameMain {
 			loan.loan(mv);
 			
 		} else if (menu == 4) {
-			System.out.print("\t\t\t\t\t로그아웃 하시겠습니까?\n\t\t\t\t [1] 네\t\t  [2] 아니요 >> ");
+			System.out.print("\t\t\t\t\t로그아웃 하시겠습니까?\n\t\t\t\t [1] 네\t\t\t[2] 아니요 >> ");
 			int out = sc.nextInt();
 			
 			if (out == 1) {

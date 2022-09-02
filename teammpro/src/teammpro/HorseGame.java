@@ -64,10 +64,12 @@ public class HorseGame {
 				check = true;
 			}
 		}
+		System.out.println("***** 순 위 결 과 *****");
 		for (int i = 0; i < 5; i++) {
 
-			System.out.println((i + 1) + "등" + rk.getHorse()[i]);
+			System.out.println("  " + (i + 1) + "등" + rk.getHorse()[i]);
 		}
+		System.out.println("********************\n\n\n\n\n\n");
 		return rk;
 	}
 
