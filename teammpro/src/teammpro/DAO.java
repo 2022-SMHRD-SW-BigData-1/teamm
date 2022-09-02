@@ -127,6 +127,7 @@ public class DAO {
 			getCon();
 			String sql = "select * from (select*from  join_users  order by point desc) where rownum<=5";
 			psmt = conn.prepareStatement(sql);
+			System.out.println("                                 "+"\t"+"등수"+"\t"+"닉네임"+"\t"+"포인트");
 
 			rs = psmt.executeQuery();
 			int count =1 ;
@@ -135,7 +136,7 @@ public class DAO {
 				String pw = rs.getString(2);
 				String nick = rs.getString(3);
 				int point = rs.getInt(4);
-				System.out.println(count +"등"+nick +" : "+point );
+				System.out.println("                                "+"\t"+count +"등."+"\t"+nick +"\t"+point );
 				count++;
 			}
 	}catch (SQLException e) {
