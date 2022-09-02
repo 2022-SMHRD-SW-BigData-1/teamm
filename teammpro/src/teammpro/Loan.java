@@ -33,7 +33,7 @@ public class Loan {
 					int p1 = sc.nextInt();
 					if(p1<=10) {
 						ldao.outShare(mv, p1,lv);
-						System.out.println("\t\t\t" + p1 + "p 지급 완료!\n현재 잔여 포인트 : " + mv.getPoint()  + "p");
+						System.out.println("\t\t\t" + p1 + "p 지급 완료!\n\t\t\t\t현재 잔여 포인트 : " + mv.getPoint()  + "p");
 					}else {
 						System.out.println("\t\t\t" + "10포인트 이상 삽입금지");
 					}
@@ -46,7 +46,7 @@ public class Loan {
 				int p2 = sc.nextInt();
 				if(p2<=mv.getPoint()) {
 					ldao.getShare(mv, p2, lv);
-					System.out.println("\t\t\t" + p2 + "p 반납 완료!\n현재 잔여 포인트 : " + mv.getPoint()  + "p");
+					System.out.println("\t\t\t" + p2 + "p 반납 완료!\n\t\t\t\t현재 잔여 포인트 : " + mv.getPoint()  + "p");
 				}
 			} else if (menu == 3) {
 				break;
