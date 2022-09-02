@@ -90,15 +90,7 @@ public class GameMain {
 						+ "                            ||       ||''||   ||'''|  ||       ||<<    \r\n"
 						+ "                            ||       ||  ||   ||      ||       || \\\\   \r\n"
 						+ "                            `|....' .||  ||. .||....| `|....' .||  \\\\. \n");
-				ArrayList<MemberVO> list = dao.select();
-				for (int i = 0; i < list.size(); i++) {
-					
-				
-					System.out.println(i+1+"등."+"\t"+list.get(i).getNickname() + "\t"+list.get(i).getPoint() + "\t");
-					
-
-				}
-
+				dao.select();
 				
 			} else if (menu == 4) {
 					System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
@@ -107,7 +99,8 @@ public class GameMain {
 			
 		} else {
 			System.out.println("\n원하시는 버튼을 입력해주세요\t["+mv.getNickname()+"님, 포인트 : "+mv.getPoint()+"]");
-		} System.out.print("[1] 게임 시작 [2] 랭킹 확인하기 [3] 대출하기 [4] 로그아웃 [5] 종료 >> ");
+		
+		System.out.print("[1] 게임 시작 [2] 랭킹 확인하기 [3] 대출하기 [4] 로그아웃 [5] 종료 >> ");
 		int menu = sc.nextInt();
 		
 		if (menu == 1) {
@@ -153,5 +146,5 @@ public class GameMain {
 		} 
 	}
 }
-
+	}
 }

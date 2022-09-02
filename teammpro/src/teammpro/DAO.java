@@ -129,14 +129,14 @@ public class DAO {
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
-			
+			int count =1 ;
 			while(rs.next()) {
 				String id = rs.getString(1);
 				String pw = rs.getString(2);
 				String nick = rs.getString(3);
 				int point = rs.getInt(4);
-				MemberVO vo = new MemberVO(id, pw, nick, point);
-				list.add(vo);
+				System.out.println(count +"등"+nick +" : "+point );
+				count++;
 			}
 	}catch (SQLException e) {
 		e.printStackTrace();
