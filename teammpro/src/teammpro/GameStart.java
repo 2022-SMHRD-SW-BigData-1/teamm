@@ -56,21 +56,26 @@ public class GameStart {
 		
 			System.out.print("\n💸 배팅하실 포인트를 입력해주세요 💸\n배팅 금액 : ");
 			int point = sc.nextInt();
-			System.out.println(point + "p 배팅하였습니다!\n행운을 빕니다...☘");
-		
-			ranking = game.gamePlay();
-				if(ranking.getHorse()[0].equals(horse_name)) {
+				if(mv.getPoint()<point) {				
+					System.out.println(point + "p 배팅하였습니다!\n행운을 빕니다...☘");
+				
+						ranking = game.gamePlay();
+					if(ranking.getHorse()[0].equals(horse_name)) {
 					
-				}else if(ranking.getHorse()[1].equals(horse_name)){
-					point = (int) (point/2);
-				}else if(ranking.getHorse()[2].equals(horse_name)) {
-					point = 0;
+					}else if(ranking.getHorse()[1].equals(horse_name)){
+						point = (int) (point/2);
+					}else if(ranking.getHorse()[2].equals(horse_name)) {
+						point = 0;
+					}
+					else {
+						point = -point;
+					}
+					mv = dao.minus_point(mv, point);
+					System.out.println(mv.getNickname()+"님의 현재 포인트 : " + mv.getPoint());
+				}else {
+					System.out.println("배팅 포인트 부족");
 				}
-				else {
-					point = -point;
-				}
-				mv = dao.minus_point(mv, point);
-				System.out.println(mv.getNickname()+"님의 현재 포인트 : " + mv.getPoint());
+				
 			} else {
 				break;
 			}

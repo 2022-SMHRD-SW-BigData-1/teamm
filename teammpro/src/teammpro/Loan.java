@@ -17,16 +17,19 @@ public class Loan {
 		System.out.println("안녕하세요 ๑╹ワ╹๑ ~ 무슨 일로 오셨나요?");
 		
 		while (true) {
+		System.out.println(mv.getNickname()+"님의 현재 포인트 : "+mv.getPoint());
 		System.out.print("[1] 포인트 빌리기 [2] 빌린 포인트 반납 [3] 나가기 >> ");
 		
 		int menu = sc.nextInt();
 		int point = mv.getPoint();
 		
 			if (menu == 1) {
-				System.out.print("앗!! 포인트가 얼마나 필요하신가요? >> ");
-				int p1 = sc.nextInt();
-				System.out.println(p1 + "p 지급 완료!\n현재 잔여 포인트 : " + (point + p1) + "p");
-				mv.setPoint(point + p1);
+				if(mv.getPoint()<=10) {
+					System.out.print("앗!! 포인트가 얼마나 필요하신가요? >> ");
+					int p1 = sc.nextInt();
+					System.out.println(p1 + "p 지급 완료!\n현재 잔여 포인트 : " + (point + p1) + "p");
+					mv.setPoint(point + p1);					
+				}
 			} else if (menu == 2) {
 				System.out.print("가져오신 포인트를 입력해주세요 >> ");
 				int p2 = sc.nextInt();
