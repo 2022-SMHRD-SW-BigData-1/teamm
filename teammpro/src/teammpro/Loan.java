@@ -9,7 +9,7 @@ public class Loan {
 
 	
 	public void loan(MemberVO mv) {
-		lv = ldao.Loancheck(mv ,lv);
+		
 		System.out.println("\r\n"
 				+ "                         '||\\   /||` .|''''|, '||\\   ||` '||''''| '\\\\  //` \r\n"
 				+ "                          ||\\\\.//||  ||    ||  ||\\\\  ||   ||   .    \\\\//   \r\n"
@@ -20,6 +20,7 @@ public class Loan {
 		System.out.println("\t\t\t\t안녕하세요 ๑╹ワ╹๑ ~ 무슨 일로 오셨나요?");
 		
 		while (true) {
+		lv = ldao.Loancheck(mv ,lv);
 		System.out.println("\n\t\t\t\t" + mv.getNickname() + "님의 현재 포인트 : " + mv.getPoint() + "p,  " 
 		+ "체납 포인트 : " + (lv==null?0:lv.getPoint()) + "p");
 		System.out.print("\n\t\t\t[1] 포인트 빌리기 [2] 빌린 포인트 반납 [3] 나가기 >> ");

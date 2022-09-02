@@ -57,32 +57,31 @@ public class LoanDAO {
 				psmt.setInt(2, point);
 				psmt.setInt(3, 1);
 				psmt.executeUpdate();
-
+				mv.setPoint(point);
+				lv.setPoint(lv.getPoint()+point);
+				dao.minus_point(mv, mv.getPoint());
 			} catch (SQLException e) {
 				System.out.println();
 			} finally {
 				close();
 			}
-			mv.setPoint(mv.getPoint() + point);
 		} else {
 			sql = "update loan set point =? where user_id = ?";
 			try {
 
 				psmt = conn.prepareStatement(sql);
-
 				psmt.setInt(1, lv.getPoint() + point);
 				psmt.setNString(2, mv.getUser_id());
-
 				psmt.executeUpdate();
-
+				mv.setPoint(point);
+				lv.setPoint(lv.getPoint()+point);
+				dao.minus_point(mv, mv.getPoint());
 			} catch (SQLException e) {
-				System.out.println();
+				System.out.println("빌리는거 실패");
 			} finally {
 				close();
 			}
-			mv.setPoint(mv.getPoint() + point);
 		}
-		dao.minus_point(mv, mv.getPoint());
 
 	}
 
