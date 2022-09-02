@@ -12,74 +12,78 @@ public class GameMain {
 		MemberVO mv = null;
 		BGM player = new BGM();
 		
+		MusicVO m = player.play();
 		
-		System.out.println("                                                        |\\    /|\r\n"
-				+ "                                                     ___| \\,,/_/\r\n"
-				+ "                                                  ---__/ \\/    \\\r\n"
-				+ "                                                 __--/     (D)  \\\r\n"
-				+ "                                                 _ -/    (_      \\\r\n"
-				+ "                                                // /       \\_ / ==\\\r\n"
-				+ "                          __-------_____--___--/           / \\_ O o)\r\n"
-				+ "                         /                                 /   \\==/`\r\n"
-				+ "                        /                                 /\r\n"
-				+ "                       ||          )                   \\_/\\\r\n"
-				+ "                       ||         /              _      /  |\r\n"
-				+ "                       | |      /--______      ___\\    /\\  :\r\n"
-				+ "                       | /   __-  - _/   ------    |  |   \\ \\\r\n"
-				+ "                        |   -  -   /                | |     \\ )\r\n"
-				+ "                        |  |   -  |                 | )     | |\r\n"
-				+ "                         | |    | |                 | |    | |\r\n"
-				+ "                         | |    | |                 | |   |_/\r\n"
-				+ "                         | |    /__\\               |  \\\r\n"
-				+ "                         /__\\                       /___\\");
+		System.out.println("\n"
+				+ "                                                           |\\    /|\r\n"
+				+ "                                                        ___| \\,,/_/\r\n"
+				+ "                                                     ---__/ \\/    \\\r\n"
+				+ "                                                    __--/     (D)  \\\r\n"
+				+ "                                                    _ -/    (_      \\\r\n"
+				+ "                                                   // /       \\_ / ==\\\r\n"
+				+ "                             __-------_____--___--/           / \\_ O o)\r\n"
+				+ "                            /                                 /   \\==/`\r\n"
+				+ "                           /                                 /\r\n"
+				+ "                          ||          )                   \\_/\\\r\n"
+				+ "                          ||         /              _      /  |\r\n"
+				+ "                          | |      /--______      ___\\    /\\  :\r\n"
+				+ "                          | /   __-  - _/   ------    |  |   \\ \\\r\n"
+				+ "                           |   -  -   /                | |     \\ )\r\n"
+				+ "                           |  |   -  |                 | )     | |\r\n"
+				+ "                            | |    | |                 | |    | |\r\n"
+				+ "                            | |    | |                 | |   |_/\r\n"
+				+ "                            | |    /__\\               |  \\\r\n"
+				+ "                            /__\\                       /___\\");
 		
-		System.out.println("\r\n"
-				+ "                         __      __       .__                               \r\n"
-				+ "                        /  \\    /  \\ ____ |  |   ____  ____   _____   ____  \r\n"
-				+ "                        \\   \\/\\/   // __ \\|  | _/ ___\\/  _ \\ /     \\_/ __ \\ \r\n"
-				+ "                         \\        /\\  ___/|  |_\\  \\__(  <_> )  Y Y  \\  ___/ \r\n"
-				+ "                          \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >\r\n"
-				+ "                               \\/       \\/          \\/            \\/     \\/ ");
+		System.out.println("\r\n\n\n"
+				+ "                       __      __       .__                             \r\n"
+				+ "                      /  \\    /  \\ ____ |  |   ____  ____   _____   ____  \r\n"
+				+ "                      \\   \\/\\/   // __ \\|  | _/ ___\\/  _ \\ /     \\_/ __ \\ \r\n"
+				+ "                       \\        /\\  ___/|  |_\\  \\__(  <_> )  Y Y  \\  ___/ \r\n"
+				+ "                        \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >\r\n"
+				+ "                             \\/       \\/          \\/            \\/     \\/ ");
 		
-		System.out.println("\n반갑습니다! ⊂((・▽・))⊃ 스마트 H 경마장에 오신 것을 환영합니다!!");
+		System.out.println("\n\n\t\t\t반갑습니다! ⊂((・▽・))⊃ 스마트 H 경마장에 오신 것을 환영합니다!!");
 		DAO dao = new DAO();
 		
 		while (true) {
 		if (mv == null) {
-			System.out.println("\n원하시는 버튼을 입력해주세요");
-			System.out.print("[1] 회원가입 [2] 로그인 [3] 랭킹 확인하기 [4] 종료 >> ");
+			System.out.println("\n\t\t\t\t     원하시는 버튼을 입력해주세요");
+			System.out.print("\t\t[1] 회원가입\t[2] 로그인\t[3] 랭킹 확인하기\t    [4] 종료 >> ");
 			int menu = sc.nextInt();
 			
 			if (menu == 1) {
-				System.out.print("가입할 ID 입력 : ");
+				System.out.print("\t\t\t\t\t가입할 ID 입력 : ");
 				String id = sc.next();
 				
-				System.out.print("PW 입력 : ");
+				System.out.print("\t\t\t\t\tPW 입력 : ");
 				String pw = sc.next();
 				
-				System.out.print("닉네임 입력 : ");
+				System.out.print("\t\t\t\t\t닉네임 입력 : ");
 				String nick = sc.next();
 				
 				int cnt = dao.join(id, pw, nick);
 				
 				if (cnt > 0) {
-					System.out.println("등록 성공");
+					System.out.println("\t\t\t\t\t등록 성공 ෆ⸒⸒⸜( ˶'ᵕ'˶)⸝ ");
 				} else {
-					System.out.println("등록 실패");
+					System.out.println("\t\t\t\t\t등록 실패 (╯•﹏•╰) ");
 				}
 				
 			} else if (menu == 2) {
-				if(mv == null) {				
-					System.out.print("로그인 ID : ");
+				if(mv == null) {		
+					System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t==================================================================");
+					System.out.print("\n\t\t\t\t     로그인 ID : ");
 					String id = sc.next();
 					
-					System.out.print("PW : ");
+					System.out.print("\n\t\t\t\t     Password : ");
 					String pw = sc.next();
+					System.out.println("\n\n\t\t==================================================================");
 					
 					mv = dao.login(id, pw);
 				} 
 			} else if (menu == 3) {
-				System.out.println("\n\r\n"
+				System.out.println("\n\n\n\n\n\n\r\n"
 						+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 						+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
 						+ "               ||...|'    //...\\\\     || \\\\ ||   ||<<       ||     || \\\\ ||  || |''|| \r\n"
@@ -95,14 +99,14 @@ public class GameMain {
 				dao.select();
 				
 			} else if (menu == 4) {
-					System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
+					System.out.println("\n\t\t\t\t✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
 					break;
 			}	
 			
 		} else {
-			System.out.println("\n원하시는 버튼을 입력해주세요\t[" + mv.getNickname() + "님, 포인트 : " + mv.getPoint() + "]");
+			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t원하시는 버튼을 입력해주세요\t[" + mv.getNickname() + "님, 포인트 : " + mv.getPoint() + "]");
 		
-		System.out.print("[1] 게임 시작 [2] 랭킹 확인하기 [3] 대출하기 [4] 로그아웃 [5] 종료 >> ");
+		System.out.print("\t  [1] 게임 시작\t [2] 랭킹 확인하기\t    [3] 대출하기\t     [4] 로그아웃\t   [5] 종료 >> ");
 		int menu = sc.nextInt();
 		
 		if (menu == 1) {
@@ -110,11 +114,11 @@ public class GameMain {
 				mv = start.gameStart(mv);
 				
 			} else {
-				System.out.println("로그인후 사용해주세요.\n");
+				System.out.println("\t\t\t\t\t로그인후 사용해주세요.\n");
 			}
 			
 		} else if (menu == 2) {
-			System.out.println("\n\r\n"
+			System.out.println("\n\n\n\n\n\n\r\n"
 					+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 					+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
 					+ "               ||...|'    //...\\\\     || \\\\ ||   ||<<       ||     || \\\\ ||  || |''|| \r\n"
@@ -133,17 +137,17 @@ public class GameMain {
 			loan.loan(mv);
 			
 		} else if (menu == 4) {
-			System.out.print("로그아웃 하시겠습니까?\n[1] 네 [2] 아니요 >> ");
+			System.out.print("\t\t\t\t\t로그아웃 하시겠습니까?\n\t\t\t\t [1] 네\t\t  [2] 아니요 >> ");
 			int out = sc.nextInt();
 			
 			if (out == 1) {
 				mv = null;
-				System.out.println("로그아웃 되었습니다! 다음에 또 만나요 (˵ ͡~ ͜ʖ ͡°˵)ﾉ\n");
+				System.out.println("\t\t\t\t로그아웃 되었습니다! 다음에 또 만나요 (˵ ͡~ ͜ʖ ͡°˵)ﾉ\n");
 			} else {
 				
 			}
 		} else if (menu == 5) {
-			System.out.println("\n✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
+			System.out.println("\n\t\t\t\t✌(‘ω’)✌ 조심히 가세요~! 다음에 또 만나요 (✌’ω’)✌");
 			break;
 		} 
 	}

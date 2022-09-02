@@ -15,9 +15,9 @@ public class HorseGame {
 		boolean check = false;
 
 		while (true) {
-			System.out.println("====================================");
-			System.out.println("====================================");
-			System.out.println("====================================");
+			System.out.println("\n\n\n\n\n\n\n\n\n\n==============================================================");
+			System.out.println("==============================================================");
+			System.out.println("==============================================================\n\n\n\n\n\n\n\n");
 
 			if (ho1.getCheck()) {
 				count += ho1.horse(rk);
@@ -49,9 +49,9 @@ public class HorseGame {
 			} else {
 				System.out.println("5번말(지금이순간) 도착" + (rk.getRank(ho5.getName()) + 1) + "등");
 			}
-			System.out.println("====================================");
-			System.out.println("====================================");
-			System.out.println("====================================");
+			System.out.println("\n\n\n\n\n\n\n\n\n\n==============================================================");
+			System.out.println("==============================================================");
+			System.out.println("==============================================================\n\n\n\n\n\n\n\n");
 			try {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e) {

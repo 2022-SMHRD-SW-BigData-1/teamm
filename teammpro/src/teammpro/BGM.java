@@ -8,7 +8,6 @@ public class BGM {
 	ArrayList<MusicVO> playList = new ArrayList<MusicVO>();
 	
 	public BGM() {
-		ArrayList<MusicVO> playList = new ArrayList<MusicVO>();
 		playList.add(new MusicVO("1등 말 소개하면서 나오는 효과음", "C://music/1등 말 소개하면서 나오는 효과음.mp3"));
 		playList.add(new MusicVO("각 말 등장하기전에 효과음", "C://music/각 말 등장하기전에 효과음.mp3"));
 		playList.add(new MusicVO("권총소리2", "C://music/권총소리2.mp3"));

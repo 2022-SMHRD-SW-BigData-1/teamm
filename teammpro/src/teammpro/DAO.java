@@ -63,7 +63,7 @@ public class DAO {
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			System.out.println("이미 존재하는 회원입니다.");
+			System.out.println("\t\t\t\t이미 존재하는 회원입니다.");
 		} finally {
 			close();
 		}
@@ -86,10 +86,10 @@ public class DAO {
 			if (rs.next()) {
 				if (rs.getString(1).contentEquals(id) && rs.getString(2).contentEquals(pw)) {
 					mv = new MemberVO(id, pw, rs.getString("nickname"), rs.getInt("point"));
-					System.out.println("로그인 성공");
+					System.out.println("\n\t\t\t\t\t로그인 성공 ( ͡° ͜ʖ ͡°)\n\n\n\n\n");
 					return mv; // 로그인 성공
 				} else {
-					System.out.println("로그인 실패");
+					System.out.println("\n\t\t\t\t\t로그인 실패 (◦ˇ _̆ ˇ◦)\n\n\n\n\n");
 					return mv; // 비밀번호 불일치
 				}
 			}
@@ -111,7 +111,6 @@ public class DAO {
 			psmt.setNString(2, mv.getUser_id());
 			psmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("포인트 업데이트 오류");
 		}
 		mv.setPoint(point);
@@ -120,7 +119,6 @@ public class DAO {
 
 	public ArrayList<MemberVO> select(){
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
-		
 		try {
 			getCon();
 			String sql = "select * from (select*from  join_users  order by point desc) where rownum<=5";
@@ -137,6 +135,7 @@ public class DAO {
 				System.out.println("                                "+"\t"+count +"등."+"\t"+nick +"\t"+point );
 				count++;
 			}
+			
 	}catch (SQLException e) {
 		e.printStackTrace();
 	} finally {
