@@ -25,13 +25,8 @@ public class DAO {
 
 			conn = DriverManager.getConnection(url, db_id, db_pw);
 
-			if (conn != null) {
-				System.out.println("접속 성공");
-			} else {
-				System.out.println("접속 실패");
-			}
 		} catch (Exception e) { // ClassNotFoundException + SQLException
-			System.out.println("오류발생");
+			System.out.println("conn 생성 오류발생");
 		}
 	}
 
@@ -67,7 +62,7 @@ public class DAO {
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("이미 존재하는 회원입니다.");
 		} finally {
 			close();
 		}
@@ -98,7 +93,7 @@ public class DAO {
 				}
 			}
 		} catch (SQLException e) {
-			System.out.println("데이터베이스 오류");
+			System.out.println("데이터 접속 오류");
 		} finally {
 			close();
 		}
@@ -116,7 +111,7 @@ public class DAO {
 			psmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("SQL 오류");
+			System.out.println("포인트 업데이트 오류");
 		}
 		mv.setPoint(point);
 		return mv;
@@ -138,7 +133,7 @@ public class DAO {
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("랭킹확인 오류");
 		} finally {
 			close();
 		}
