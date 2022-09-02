@@ -6,6 +6,7 @@ public class Loan {
 	Scanner sc = new Scanner(System.in);
 	LoanDAO ldao = new LoanDAO();
 	LoanVO lv = null;
+
 	
 	public void loan(MemberVO mv) {
 		lv = ldao.Loancheck(mv ,lv);
@@ -32,7 +33,6 @@ public class Loan {
 					if(p1<=10) {
 						ldao.outShare(mv, p1,lv);
 						System.out.println("\t\t\t" + p1 + "p 지급 완료!\n현재 잔여 포인트 : " + mv.getPoint()  + "p");
-						mv.setPoint(mv.getPoint());					
 					}else {
 						System.out.println("\t\t\t" + "10포인트 이상 삽입금지");
 					}
@@ -46,7 +46,6 @@ public class Loan {
 				if(p2<=mv.getPoint()) {
 					ldao.getShare(mv, p2, lv);
 					System.out.println("\t\t\t" + p2 + "p 반납 완료!\n현재 잔여 포인트 : " + mv.getPoint()  + "p");
-					mv.setPoint(mv.getPoint());
 				}
 			} else if (menu == 3) {
 				break;
