@@ -10,6 +10,8 @@ public class GameMain {
 		GameStart start = new GameStart();
 		Loan loan = new Loan();
 		MemberVO mv = null;
+		BGM player = new BGM();
+		
 		
 		System.out.println("                                                        |\\    /|\r\n"
 				+ "                                                     ___| \\,,/_/\r\n"
@@ -98,7 +100,7 @@ public class GameMain {
 			}	
 			
 		} else {
-			System.out.println("\n원하시는 버튼을 입력해주세요\t["+mv.getNickname()+"님, 포인트 : "+mv.getPoint()+"]");
+			System.out.println("\n원하시는 버튼을 입력해주세요\t[" + mv.getNickname() + "님, 포인트 : " + mv.getPoint() + "]");
 		
 		System.out.print("[1] 게임 시작 [2] 랭킹 확인하기 [3] 대출하기 [4] 로그아웃 [5] 종료 >> ");
 		int menu = sc.nextInt();
