@@ -56,7 +56,7 @@ public class GameStart {
 		
 			System.out.print("\n💸 배팅하실 포인트를 입력해주세요 💸\n배팅 금액 : ");
 			int point = sc.nextInt();
-				if(mv.getPoint()>point) {				
+				if(mv.getPoint()>=point) {				
 					System.out.println(point + "p 배팅하였습니다!\n행운을 빕니다...☘");
 				
 						ranking = game.gamePlay();

@@ -1,6 +1,5 @@
 package teammpro;
 
-import java.io.Closeable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +12,7 @@ public class LoanDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	MemberVO mv = null;
+	DAO dao = new DAO();
 
 	public void getCon() {
 		try {
@@ -45,68 +45,94 @@ public class LoanDAO {
 		}
 	}
 
-	public int Loancheck(int point, int count,String user_id) {
+	// 포인트 빌려줄때 쓰는 메소드
+	public void outShare(MemberVO mv, int point, LoanVO lv) {
 		getCon();
-		int cnt = 0;
+		String sql = null;
+		if (lv == null) {
+			sql = "insert into loan values(?,?,?)";
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, mv.getUser_id());
+				psmt.setInt(2, point);
+				psmt.setInt(3, 1);
+				psmt.executeUpdate();
 
-		String sql = "insert into Loan values(?,?,?)";
+			} catch (SQLException e) {
+				System.out.println();
+			} finally {
+				close();
+			}
+			mv.setPoint(mv.getPoint() + point);
+		} else {
+			sql = "update loan set point =? where user_id = ?";
+			try {
+
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setInt(1, lv.getPoint() + point);
+				psmt.setNString(2, mv.getUser_id());
+
+				psmt.executeUpdate();
+
+			} catch (SQLException e) {
+				System.out.println();
+			} finally {
+				close();
+			}
+			mv.setPoint(mv.getPoint() + point);
+		}
+		dao.minus_point(mv, mv.getPoint());
+
+	}
+
+	public LoanVO Loancheck(MemberVO mv, LoanVO lv) {
+
+		getCon();
+		String sql = "select * from loan where user_id = ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1,mv.getUser_id());
-			psmt.setInt(2,point);
-			psmt.setInt(3,count);
-			cnt = psmt.executeUpdate();
+
+			psmt.setString(1, mv.getUser_id());
+
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				String id = rs.getString("user_id");
+				int point = rs.getInt("point");
+				lv = new LoanVO(id, point);
+			}
 
 		} catch (SQLException e) {
-
 			System.out.println();
 		} finally {
 			close();
 		}
-		return cnt;
-
+		return lv;
 	}
 
-	public void Loanplus(int loanpoint) {
-		getCon();
-
-		String sql = "update loan set point =? where user_id = ?";
-
-		try {
-			psmt = conn.prepareStatement(sql);
-
-			psmt.setInt(1, loanpoint);
-			psmt.setNString(2, mv.getUser_id());
-
-			psmt.executeUpdate();
-
-		} catch (SQLException e) {
-			System.out.println();
+	// 포인트 돌려받을때 쓰는 메소드
+	public void getShare(MemberVO mv, int point, LoanVO lv) {
+		if (lv == null || lv.getPoint() == 0) {
+			System.out.println("갚을 포인트가 없습니다.");
+		} else {
+			getCon();
+			String sql = "update loan set point =? where user_id = ?";
+			try {
+				
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, lv.getPoint() - point);
+				psmt.setString(2, mv.getUser_id());
+				psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				System.out.println("체납 실패");
+			} finally {
+				close();
+			}
+			lv.setPoint(lv.getPoint()-point);
+			mv.setPoint(mv.getPoint() - point);
+			dao.minus_point(mv, mv.getPoint());
 		}
-		mv.setPoint(loanpoint);
-
 	}
-
-	public void Loanback(int point, int loanpoint) {
-		getCon();
-
-		String sql = "update loan set point =? where user_id = ?";
-
-		try {
-
-			psmt = conn.prepareStatement(sql);
-
-			psmt.setInt(1,loanpoint);
-			psmt.setNString(2, mv.getUser_id());
-
-			psmt.executeUpdate();
-
-		} catch (SQLException e) {
-			System.out.println();
-		}
-		mv.setPoint(point - loanpoint);
-
-	}
-
 }
