@@ -127,7 +127,7 @@ public class LoanDAO {
 			} finally {
 				close();
 			}
-			lv.setPoint(lv.getPoint()-point);
+			lv.setPoint(lv.getPoint() - point);
 			mv.setPoint(mv.getPoint() - point);
 			dao.minus_point(mv, mv.getPoint());
 		}

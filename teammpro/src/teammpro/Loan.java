@@ -49,6 +49,7 @@ public class Loan {
 					System.out.println("\t\t\t\t\t         " + p2 + "p 반납 완료!\n\n\t\t\t\t         현재 잔여 포인트 : " + mv.getPoint()  + "p");
 				}
 			} else if (menu == 3) {
+				lv = null;
 				break;
 			}
 		}
