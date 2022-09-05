@@ -9,6 +9,7 @@ public class GameStart {
 		HorseGame game = new HorseGame();
 		RANK ranking = null;
 		DAO dao = new DAO();
+		BGM play = new BGM();
 
 		while(true) {
 			System.out.print("\n\t\t\t\t\t게임을 시작하시겠습니까?\n\t\t\t\t  [1]네\t\t\t[2]아니요 >> ");
@@ -58,7 +59,7 @@ public class GameStart {
 			int point = sc.nextInt();
 				if(mv.getPoint()>=point) {				
 					System.out.println("\t\t\t\t       " + point + "p 배팅하였습니다!\n\t\t\t\t\t행운을 빕니다...☘");
-				
+					play.play("소리 내면서 달리는 말");
 						ranking = game.gamePlay();
 					if(ranking.getHorse()[0].equals(horse_name)) {
 					

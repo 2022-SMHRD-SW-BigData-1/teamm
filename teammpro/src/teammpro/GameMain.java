@@ -39,7 +39,7 @@ public class GameMain {
 				+ "                            | |    /__\\               |  \\\r\n"
 				+ "                            /__\\                       /___\\");
 		try {
-			TimeUnit.SECONDS.sleep(2);
+			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,7 +102,7 @@ public class GameMain {
 					mv = dao.login(id, pw);
 				} 
 			} else if (menu == 3) {
-				play.play("1등등장");
+				play.play("빵빠레");
 				System.out.println("\n\n\n\n\n\n\r\n"
 						+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 						+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"
@@ -132,13 +132,12 @@ public class GameMain {
 		if (menu == 1) {
 			if (mv != null) {
 				mv = start.gameStart(mv);
-				
 			} else {
 				System.out.println("\t\t\t\t\t로그인후 사용해주세요.\n");
 			}
 			
 		} else if (menu == 2) {
-			play.play("1등등장");
+			play.play("빵빠레");
 			System.out.println("\n\n\n\n\n\n\r\n"
 					+ "              '||'''|,      /.\\      '||\\   ||` '||  //' |''||''| '||\\   ||` .|'''''| \r\n"
 					+ "               ||   ||     // \\\\      ||\\\\  ||   || //      ||     ||\\\\  ||  || .     \r\n"

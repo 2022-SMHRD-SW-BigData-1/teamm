@@ -23,31 +23,31 @@ public class HorseGame {
 				count += ho1.horse(rk);
 				System.out.println();
 			} else {
-				System.out.println("1번말(훌라밍고) 도착" + (rk.getRank(ho1.getName()) + 1) + "등");
+				System.out.println("1번말(훌라밍고) 도착" + (rk.getRank(ho1.getName()) + 1) + "등\n");
 			}
 			if (ho2.getCheck()) {
 				count += ho2.horse(rk);
 				System.out.println();
 			} else {
-				System.out.println("2번말(심장의고동) 도착" + (rk.getRank(ho2.getName()) + 1) + "등");
+				System.out.println("2번말(심장의고동) 도착" + (rk.getRank(ho2.getName()) + 1) + "등\n");
 			}
 			if (ho3.getCheck()) {
 				count += ho3.horse(rk);
 				System.out.println();
 			} else {
-				System.out.println("3번말(청담도끼) 도착" + (rk.getRank(ho3.getName()) + 1) + "등");
+				System.out.println("3번말(청담도끼) 도착" + (rk.getRank(ho3.getName()) + 1) + "등\n");
 			}
 			if (ho4.getCheck()) {
 				count += ho4.horse(rk);
 				System.out.println();
 			} else {
-				System.out.println("4번말(경부대로) 도착" + (rk.getRank(ho4.getName()) + 1) + "등");
+				System.out.println("4번말(경부대로) 도착" + (rk.getRank(ho4.getName()) + 1) + "등\n");
 			}
 			if (ho5.getCheck()) {
 				count += ho5.horse(rk);
 				System.out.println();
 			} else {
-				System.out.println("5번말(지금이순간) 도착" + (rk.getRank(ho5.getName()) + 1) + "등");
+				System.out.println("5번말(지금이순간) 도착" + (rk.getRank(ho5.getName()) + 1) + "등\n");
 			}
 			System.out.println("\n\n\n\n\n\n\n\n\n\n==============================================================");
 			System.out.println("==============================================================");
