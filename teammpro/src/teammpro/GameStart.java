@@ -45,13 +45,13 @@ public class GameStart {
 			else if(choice ==2) {
 				horse_name =" 2.심장의고동🐎";
 			}
-			else if(choice ==2) {
+			else if(choice ==3) {
 				horse_name =" 3.청담도끼🐎";
 			}
-			else if(choice ==2) {
+			else if(choice ==4) {
 				horse_name =" 4.경부대로🐎";
 			}
-			else if(choice ==2) {
+			else if(choice ==5) {
 				horse_name =" 5.지금이순간🐎";
 			}
 		
@@ -60,7 +60,7 @@ public class GameStart {
 				if(mv.getPoint()>=point) {				
 					System.out.println("\t\t\t\t       " + point + "p 배팅하였습니다!\n\t\t\t\t\t행운을 빕니다...☘");
 					play.play("소리 내면서 달리는 말");
-						ranking = game.gamePlay();
+					ranking = game.gamePlay();
 					if(ranking.getHorse()[0].equals(horse_name)) {
 					
 					}else if(ranking.getHorse()[1].equals(horse_name)){

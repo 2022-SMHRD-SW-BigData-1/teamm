@@ -11,7 +11,6 @@ public class HorseGame {
 		Horse ho4 = new Horse(" 4.경부대로🐎");
 		Horse ho5 = new Horse(" 5.지금이순간🐎");
 		int count = 0;
-		int rank = 0;
 		boolean check = false;
 
 		while (true) {
