@@ -2,6 +2,7 @@ package teammpro;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import javazoom.jl.player.MP3Player;
 
@@ -37,6 +38,12 @@ public class GameMain {
 				+ "                            | |    | |                 | |   |_/\r\n"
 				+ "                            | |    /__\\               |  \\\r\n"
 				+ "                            /__\\                       /___\\");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.out.println("\r\n\n\n"
 				+ "                       __      __       .__                             \r\n"
@@ -45,6 +52,12 @@ public class GameMain {
 				+ "                       \\        /\\  ___/|  |_\\  \\__(  <_> )  Y Y  \\  ___/ \r\n"
 				+ "                        \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >\r\n"
 				+ "                             \\/       \\/          \\/            \\/     \\/ ");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.out.println("\n\n\t\t\t반갑습니다! ⊂((・▽・))⊃ 스마트 H 경마장에 오신 것을 환영합니다!!");
 		DAO dao = new DAO();
